@@ -1,0 +1,33 @@
+<div class="login-page">
+  <div class="login-form">
+    <div class="login-sign">
+      <mat-icon>person</mat-icon>
+      <p class="login-title">Login</p>
+    </div>
+    <div class="input-form">
+      <div class="input-wrapper">
+        <label for="username">Username </label>
+        <input id="username" [(ngModel)]="username" placeholder="Username">
+      </div>
+      <div class="input-wrapper">
+        <label for="password">Password</label>
+        <input id="password" [(ngModel)]="password" type="password" placeholder="Password">
+      </div>
+      <div class="remember-me-wrapper">
+        <input id="remember-me" type="checkbox">
+        <h3>Remember me</h3>
+      </div>
+      <div *ngIf="error" class="error-message">
+        <h3>{{error}}</h3>
+      </div>
+      <div *ngIf="loading">
+        <h4>....Loading</h4>
+      </div>
+    </div>
+    <hr>
+    <div class="button-wrapper">
+      <button (click)="login()" class="login-button">Login</button>
+      <a routerLink="/register">Register</a>
+    </div>
+  </div>
+</div>

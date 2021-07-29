@@ -1,0 +1,30 @@
+<div class="register-page">
+  <div class="register-form">
+    <div class="register-sign">
+      <mat-icon>person</mat-icon>
+      <p class="register-title">Register</p>
+    </div>
+    <div class="input-form">
+      <div class="input-wrapper">
+        <label for="username">Username </label>
+        <input id="username" [(ngModel)]="username" placeholder="Username">
+      </div>
+      <div class="input-wrapper">
+        <label for="password">Password</label>
+        <input id="password" [(ngModel)]="password" type="password" placeholder="Password">
+      </div>
+      <div *ngIf="error" class="error-message">
+        <h3>{{error}}</h3>
+      </div>
+      <div *ngIf="loading">
+        <h4>....Loading</h4>
+      </div>
+    </div>
+    <hr>
+    <div class="button-wrapper">
+      <button (click)="register()" class="login-button">Register</button>
+      <a routerLink="/login">Back to login</a>
+    </div>
+  </div>
+</div>
+

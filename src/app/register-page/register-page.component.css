@@ -1,0 +1,111 @@
+.register-page {
+  display: flex;
+  background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  overflow: hidden;
+}
+.register-form {
+  background: white;
+  display: flex;
+  position: relative;
+  border-radius: 1rem;
+  min-width: 380px;
+  padding: 13px 25px;
+
+  flex-direction: column;
+  align-items: flex-start;
+}
+.register-title {
+  font-size: 35px;
+  margin-left: 18px;
+  margin-top: 15px;
+  padding: 10px;
+}
+.register-form hr {
+  width: 99%;
+  padding: 0;
+  position: absolute;
+  left:0;
+  bottom: 19%;
+}
+.register-sign{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.login-sign mat-icon {
+  font-size: 35px;
+}
+.input-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.input-wrapper {
+  display: flex;
+  width: 100%;
+  padding: 5px;
+  flex-direction: column;
+}
+.input-wrapper input {
+  width: 90%;
+  padding: 3px;
+  margin-top: 5px;
+  border-radius: 3px;
+  border-color: gray;
+  border-width: 2px;
+  border-style: groove;
+}
+.input-wrapper label {
+  margin-top: 8px;
+}
+.input-wrapper input:focus {
+  border: 2px groove red;
+  outline: red;
+}
+.remember-me-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.remember-me-wrapper h3 {
+  margin-left: 4px;
+  margin-bottom: 0;
+}
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  width: 90%;
+  padding:15px;
+}
+.button-wrapper a {
+  color: black;
+}
+.login-button {
+  font-size: 11px;
+  padding: 6px 30px;
+}
+.error-message {
+  display: flex;
+  color: red;
+  padding-top: 15px;
+  animation: fadeIn 0.5s ease;
+  align-items: center;
+  justify-content: center;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
