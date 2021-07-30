@@ -14,5 +14,9 @@ export class UserService {
       return of(crtUser);
     }
     throw new Error('No user logged in');
-}
+  }
+  logout(): Observable<boolean> {
+    sessionStorage.removeItem('crtUser');
+    return of(true);
+  }
 }

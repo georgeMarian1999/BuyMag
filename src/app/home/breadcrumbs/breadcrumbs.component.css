@@ -1,0 +1,35 @@
+.home-breadcrumbs {
+  flex-grow: 1;
+  position: relative;
+  width: 100%;
+  padding: 13px;
+  height: 14%;
+  margin-top: 100px;
+  margin-left: 100px;
+  align-self: flex-start;
+  margin-right: 20px;
+  background-color: #BEE6FCFF;
+}
+.card-shadow {
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.home-breadcrumbs-title {
+  margin-top: 10px;
+  color: rgba(15, 99, 215, 0.85);
+}
+.home-breadcrumbs-options {
+  color: rgba(15, 99, 215, 0.85);
+  display: flex;
+  padding-bottom: 10px;
+  height: 55%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 15px;
+}
+.home-breadcrumbs-route {
+  position: absolute;
+  bottom : 110%;
+  width: 100%;
+  left: 0;
+  color: rgba(15, 99, 215, 0.85);
+}

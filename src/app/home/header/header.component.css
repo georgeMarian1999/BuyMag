@@ -1,0 +1,21 @@
+.home-products-header {
+  background-color:white;
+  border-radius: 2px;
+  padding:12px;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.home-products-header-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 30%;
+}
+.home-products-header-filter {
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  width: 70%;
+  justify-content: space-evenly;
+}

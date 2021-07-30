@@ -6,7 +6,7 @@
       <mat-icon (click)="showLogout()" class="show" id="keyboard-down">keyboard_arrow_down</mat-icon>
       <mat-icon (click)="hideLogout()" class="hide" id="keyboard-up">keyboard_arrow_up</mat-icon>
       <div class="custom-navbar-logout">
-        <span>Logout</span>
+        <span (click)="logout()" class="logout-button">Logout</span>
       </div>
     </div>
     <div class="custom-navbar-time">

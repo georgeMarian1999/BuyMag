@@ -51,7 +51,8 @@ export class CustomNavbarComponent implements OnInit,OnDestroy {
 
   setDate():void {
     const date = new Date();
-    const month = (date.getMonth() < 10) ? '0' + date.getMonth().toString() : date.getMonth().toString();
+    const monthNr = date.getMonth() + 1;
+    const month = (monthNr < 10) ? '0' + monthNr.toString() : monthNr.toString();
     const day = (date.getDate() < 10) ? '0' + date.getDate().toString() : date.getDate().toString();
     this.date = month + "/" + day + "/" + date.getFullYear().toString();
 
@@ -86,5 +87,10 @@ export class CustomNavbarComponent implements OnInit,OnDestroy {
     const logoutDropDown = document.querySelector('.custom-navbar-logout')!;
     logoutDropDown.classList.toggle('showDropDown', false);
 
+  }
+
+  logout():void {
+    this.userService.logout().subscribe();
+    this.router.navigate(['/login'])
   }
 }

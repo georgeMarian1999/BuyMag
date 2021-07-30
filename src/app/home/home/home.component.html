@@ -1,1 +1,66 @@
 <app-custom-navbar></app-custom-navbar>
+<div class="home-content">
+  <div class="home-breadcrumbs card-shadow">
+    <div class="home-breadcrumbs-title">
+      <h4><b>Food & Stuff</b></h4>
+    </div>
+    <div class="home-breadcrumbs-options">
+      <div>
+        Food (1778)
+      </div>
+      <div>
+        Stuff (2300)
+      </div>
+    </div>
+    <div class="home-breadcrumbs-route">
+      Food & Stuff / Food
+    </div>
+  </div>
+  <div class="home-products">
+   <div class="home-products-header card-shadow">
+      <div class="home-products-header-title">
+        <h1>Food</h1>
+        <h2>1779 products</h2>
+      </div>
+     <hr>
+     <div class="home-products-header-filter">
+       <div class="home-products-header-select-wrapper">
+         <label for="search-item">Name</label>
+         <input id="search-item">
+       </div>
+       <div class="home-products-header-select-wrapper">
+         <label for="type-select">Type</label>
+         <select id="type-select">
+           <option value="" disabled selected>Selecteaza...</option>
+         </select>
+       </div>
+       <div class="home-products-header-select-wrapper">
+         <label for="allergies-select">Allergies</label>
+         <select id="allergies-select">
+           <option value="" disabled selected>Selecteaza...</option>
+         </select>
+       </div>
+     </div>
+     <hr>
+     <div class="home-products-header-view">
+       <span>Tip afisare:</span>
+       <div class="view-wrapper">
+         <div (click)="triggerChartView()" class="view-button selected chart-button">
+           <mat-icon> format_align_justify</mat-icon>
+         </div>
+         <div (click)="triggerGroupedView()" class="view-button grouped-button">
+           <mat-icon>view_comfy</mat-icon>
+         </div>
+       </div>
+     </div>
+   </div>
+    <div *ngIf="loading" class="loading-products">
+      <mat-spinner></mat-spinner>
+    </div>
+    <app-products *ngIf="chartView" [products]="products"></app-products>
+    <app-products-grouped-view *ngIf="!chartView" [products]="products"></app-products-grouped-view>
+  </div>
+  <div class="cart-space">
+
+  </div>
+</div>

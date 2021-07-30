@@ -4,6 +4,12 @@ import { HomeComponent } from './home/home.component';
 import { CustomNavbarComponent } from './custom-navbar/custom-navbar.component';
 import {RouterModule} from "@angular/router";
 import {MatIconModule} from "@angular/material/icon";
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { HeaderComponent } from './header/header.component';
+import { ProductsComponent } from './products-chart-view/products.component';
+import { ProductComponent } from './product-chart-view/product.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { ProductsGroupedViewComponent } from './products-grouped-view/products-grouped-view.component';
 
 const routes = [
   {
@@ -16,11 +22,17 @@ const routes = [
   declarations: [
     HomeComponent,
     CustomNavbarComponent,
+    BreadcrumbsComponent,
+    HeaderComponent,
+    ProductsComponent,
+    ProductComponent,
+    ProductsGroupedViewComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    MatIconModule,
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        MatIconModule,
+        MatProgressSpinnerModule,
+    ]
 })
 export class HomeModule { }
