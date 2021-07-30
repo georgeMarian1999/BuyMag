@@ -1,0 +1,87 @@
+p {
+  margin: 0;
+}
+.custom-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #24292e;
+  height: 9%;
+  position: sticky;
+  top:0;
+  animation: slideInDown 1s ease;
+  width: 100%;
+}
+.custom-navbar-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 40%;
+
+}
+.custom-navbar-user{
+  color: #888888;
+  display: flex;
+  align-items: center;
+  width: 20%;
+  position: relative;
+  padding:5px;
+  border: 2px groove gray;
+  border-radius: 2rem;
+  justify-content: space-evenly;
+}
+.custom-navbar-logout {
+  position: absolute;
+  top: 110%;
+  background-color: #e6ebf1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px groove gray;
+  border-radius: 2rem;
+}
+.custom-navbar-logout .showDropDown {
+  display: flex;
+}
+.custom-navbar-user mat-icon {
+  cursor: pointer;
+}
+
+.custom-navbar-time{
+  color: #888888;
+  display: flex;
+  align-items: center;
+}
+.custom-navbar-time p {
+  margin-left: 4px;
+}
+.custom-navbar-options {
+  color: #888888;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+}
+#keyboard-down {
+  margin-left: 5px;
+}
+#keyboard-up {
+  margin-left: 5px;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: flex;
+}
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

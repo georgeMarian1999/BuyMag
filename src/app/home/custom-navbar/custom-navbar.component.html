@@ -1,0 +1,20 @@
+<div class="custom-navbar">
+  <div class="custom-navbar-content">
+    <div class="custom-navbar-user">
+      <mat-icon>person</mat-icon>
+      <p *ngIf="user">{{user.username}}</p>
+      <mat-icon (click)="showLogout()" class="show" id="keyboard-down">keyboard_arrow_down</mat-icon>
+      <mat-icon (click)="hideLogout()" class="hide" id="keyboard-up">keyboard_arrow_up</mat-icon>
+      <div class="custom-navbar-logout">
+        <span>Logout</span>
+      </div>
+    </div>
+    <div class="custom-navbar-time">
+      <b *ngIf="date" class="date">{{date}}</b>
+      <p class="time">{{time}}</p>
+    </div>
+    <div class="custom-navbar-options">
+      <mat-icon>menu</mat-icon>
+    </div>
+  </div>
+</div>
