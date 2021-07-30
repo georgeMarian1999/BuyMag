@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {User} from "./user";
 import {Observable, of} from "rxjs";
-import {debounceTime} from "rxjs/operators";
+import {debounceTime, delay} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,9 @@ export class AuthService {
       }
       const user = users[index];
       sessionStorage.setItem('crtUser', JSON.stringify(user));
-      return of(user);
+      return of(user).pipe(
+        delay(1000)
+      );
     }
     throw new Error('Database error');
   }
@@ -33,7 +35,9 @@ export class AuthService {
       const newUser = new User(username,password);
       users.push(newUser);
       localStorage.setItem('users',JSON.stringify(users));
-      return of(null);
+      return of(null).pipe(
+        delay(1000),
+      );
     }
     throw new Error('Username already exists');
   }

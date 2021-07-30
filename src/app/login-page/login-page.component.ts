@@ -3,7 +3,6 @@ import {User} from "../user";
 import {Router} from "@angular/router";
 import {AuthService} from "../auth.service";
 import {Observable, of} from "rxjs";
-import {debounceTime} from "rxjs/operators";
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -27,12 +26,8 @@ export class LoginPageComponent implements OnInit {
         .subscribe((user:User)=>{
           this.user = user;
           this.error = '';
-
-          setTimeout(()=>{
-            this.loading = false;
-            this.router.navigate(['/home'])
-          },1000)
-
+          this.loading = false;
+          this.router.navigate(['/home'])
         },this.handleError<User>('login'))
     }catch (error){
       this.loading = false;

@@ -20,8 +20,8 @@
       <div *ngIf="error" class="error-message">
         <h3>{{error}}</h3>
       </div>
-      <div *ngIf="loading">
-        <h4>....Loading</h4>
+      <div class="login-loader" *ngIf="loading">
+        <img width="40" height="45" src="./assets/spinner3.gif" alt="loader">
       </div>
     </div>
     <hr>
