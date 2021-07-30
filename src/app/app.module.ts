@@ -7,13 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule} from "@angular/forms";
 import {MatIconModule} from "@angular/material/icon";
-import { HomePageComponent } from './home-page/home-page.component';
+
 import { RegisterPageComponent } from './register-page/register-page.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    HomePageComponent,
     RegisterPageComponent,
   ],
   imports: [
