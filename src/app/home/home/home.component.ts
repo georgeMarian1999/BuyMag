@@ -3,6 +3,8 @@ import {DataService} from "../data.service";
 import {FoodType} from "../model/food-type";
 import {Allergies} from "../model/allergies";
 import {Product} from "../model/product";
+import {Observable, Subject} from "rxjs";
+import {debounceTime, distinctUntilChanged, switchMap} from "rxjs/operators";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,17 +12,19 @@ import {Product} from "../model/product";
 })
 export class HomeComponent implements OnInit {
   products?: Product[];
-  foods?: Product[];
-  stuff?: Product[];
   productsType:string = 'Food & Stuff';
   loading : boolean = true;
   chartView : boolean = true;
   foodTypes: (FoodType | string)[] = [];
   allergies: (Allergies | string)[] = [];
+
+
+
   constructor(private dataService:DataService) { }
 
   ngOnInit(): void {
     this.foodTypes = Object.values(FoodType);
+    // @ts-ignore
     this.allergies = Object.values(Allergies);
     this.dataService.getProducts()
       .subscribe((data:Product[])=>{
@@ -58,6 +62,25 @@ export class HomeComponent implements OnInit {
       })
     this.productsType = 'Food & Stuff';
   }
+  filterByFoodType(type:string):void{
+    this.loading = true;
+    this.products = [];
+    this.dataService.getFoodByType(type)
+      .subscribe((data:Product[])=>{
+        this.products = data;
+        this.loading = false;
+      });
+  }
+  filterByAllergy(allergy:string):void {
+    this.loading = true;
+    this.products = [];
+    this.dataService.getFoodByAllergy(allergy)
+      .subscribe((data:Product[])=>{
+        this.products = data;
+        this.loading = false;
+      });
+  }
+
 
   triggerChartView() {
     const chartButton = document.querySelector('.chart-button')!;

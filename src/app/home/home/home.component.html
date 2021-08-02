@@ -5,7 +5,7 @@
   </div>
   <div class="home-products">
    <div class="home-products-header card-shadow">
-     <app-header [typeOfProducts]="productsType" [products]="products" (triggerChart)="triggerChartView()" (triggerGrouped)="triggerGroupedView()"></app-header>
+     <app-header (selectedTypeEvent)="filterByFoodType($event)" (selectedAllergyEvent)="filterByAllergy($event)" [typeOfProducts]="productsType" [products]="products" (triggerChart)="triggerChartView()" (triggerGrouped)="triggerGroupedView()"></app-header>
    </div>
     <div *ngIf="loading" class="loading-products">
       <mat-spinner></mat-spinner>

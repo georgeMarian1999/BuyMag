@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Product} from "../model/product";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-products',

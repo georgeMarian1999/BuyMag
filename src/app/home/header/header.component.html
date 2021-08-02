@@ -10,14 +10,14 @@
   </div>
   <div class="home-products-header-select-wrapper">
     <label for="type-select">Type</label>
-    <select id="type-select">
+    <select id="type-select" (change)="selectType()" [(ngModel)]="selectedType">
       <option value="" disabled selected>Selecteaza...</option>
       <option *ngFor="let foodtype of foodTypes" [value]="foodtype">{{foodtype.toString()}}</option>
     </select>
   </div>
   <div class="home-products-header-select-wrapper">
     <label for="allergies-select">Allergies</label>
-    <select id="allergies-select">
+    <select id="allergies-select" (change)="selectAllergy()" [(ngModel)]="selectedAllergy">
       <option value="" disabled selected>Selecteaza...</option>
       <option *ngFor="let allergy of allergies" [value]="allergy">{{allergy.toString()}}</option>
     </select>

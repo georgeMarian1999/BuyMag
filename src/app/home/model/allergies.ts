@@ -4,3 +4,7 @@ export enum Allergies {
   Sesame = 'Sesame',
   Lactose = 'Lactose'
 }
+export function fromString(dir: string): Allergies{
+    return (Allergies as any)[dir];
+}
+

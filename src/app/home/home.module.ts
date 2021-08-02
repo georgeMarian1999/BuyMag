@@ -13,6 +13,7 @@ import { ProductsGroupedViewComponent } from './products-grouped-view/products-g
 import { CaloriesPipe } from './pipes/calories.pipe';
 import { PricePipe } from './pipes/price.pipe';
 import { ProductGroupedViewComponent } from './product-grouped-view/product-grouped-view.component';
+import {FormsModule} from "@angular/forms";
 
 const routes = [
   {
@@ -34,11 +35,12 @@ const routes = [
     PricePipe,
     ProductGroupedViewComponent,
   ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        MatIconModule,
-        MatProgressSpinnerModule,
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    MatIconModule,
+    MatProgressSpinnerModule,
+    FormsModule,
+  ]
 })
 export class HomeModule { }

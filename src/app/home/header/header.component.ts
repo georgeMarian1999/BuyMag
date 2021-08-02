@@ -13,6 +13,10 @@ export class HeaderComponent implements OnInit {
   @Input() products?: Product[];
   @Output() triggerChart = new EventEmitter<string>();
   @Output() triggerGrouped = new EventEmitter<string>();
+  @Output() selectedTypeEvent = new EventEmitter<string>();
+  @Output() selectedAllergyEvent = new EventEmitter<string>();
+  selectedType: string= '';
+  selectedAllergy: string = '';
   title :string = '';
   foodTypes: (FoodType | string)[] = [];
   allergies: (Allergies | string)[] = [];
@@ -28,5 +32,13 @@ export class HeaderComponent implements OnInit {
 
   triggerGroupedView() {
     this.triggerGrouped.emit('Grouped view');
+  }
+
+  selectType():void {
+    this.selectedTypeEvent.emit(this.selectedType)
+  }
+
+  selectAllergy() {
+    this.selectedAllergyEvent.emit(this.selectedAllergy);
   }
 }
