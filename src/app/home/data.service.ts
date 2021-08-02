@@ -10,11 +10,29 @@ import {Product} from "./model/product";
 export class DataService {
 
   constructor() { }
-
-
+  getNrFoods():Observable<number> {
+    return of(data.filter((p:Product)=> p.calories !== undefined).length).pipe(
+      delay(500)
+    );
+  }
+  getFoods(): Observable<Product[]>{
+    return of(data.filter((p:Product)=> p.calories !== undefined)).pipe(
+      delay(500)
+    );
+  }
+  getNrStuff():Observable<number>{
+    return of(data.filter((p:Product)=> p.calories === undefined).length).pipe(
+      delay(500)
+    );
+  }
   getProducts():Observable<Product[]> {
     return of(data).pipe(
       delay(1000)
+    );
+  }
+  getStuff():Observable<Product[]> {
+    return of(data.filter((p:Product)=> p.calories === undefined)).pipe(
+      delay(500)
     );
   }
 }

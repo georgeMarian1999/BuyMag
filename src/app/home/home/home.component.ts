@@ -29,16 +29,34 @@ export class HomeComponent implements OnInit {
       })
   }
   showFood(): void{
-    this.foods = this.products?.filter((p:Product)=>{
-      return p.calories!== undefined;
-    })
+    this.loading = true;
+    this.products = [];
+    this.dataService.getFoods()
+      .subscribe((data:Product[])=>{
+        this.products = data;
+        this.loading = false;
+      })
     this.productsType = 'Food';
   }
   showStuff():void {
-    this.stuff = this.products?.filter((p:Product)=>{
-      return p.calories === undefined;
-    });
+    this.loading = true;
+    this.products = [];
+    this.dataService.getStuff()
+      .subscribe((data:Product[])=>{
+        this.products = data;
+        this.loading = false;
+      })
     this.productsType = 'Stuff';
+  }
+  showFoodStuff() {
+    this.loading = true;
+    this.products = [];
+    this.dataService.getProducts()
+      .subscribe((data:Product[])=>{
+        this.products = data;
+        this.loading = false;
+      })
+    this.productsType = 'Food & Stuff';
   }
 
   triggerChartView() {
@@ -55,4 +73,5 @@ export class HomeComponent implements OnInit {
     groupedButton.classList.toggle('selected', true);
     this.chartView = false;
   }
+
 }

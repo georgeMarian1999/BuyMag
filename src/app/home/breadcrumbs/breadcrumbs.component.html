@@ -1,12 +1,12 @@
- <div class="home-breadcrumbs-title">
+ <div (click)="showFoodStuff()" class="home-breadcrumbs-title">
     <h4><b>Food & Stuff</b></h4>
  </div>
   <div class="home-breadcrumbs-options">
     <div class="food-select" (click)="showFood()">
-      Food (1778)
+      Food ({{nrFoods}})
     </div>
     <div class="stuff-select" (click)="shotStuff();">
-      Stuff (2300)
+      Stuff ({{nrStuff}})
     </div>
   </div>
   <div class="home-breadcrumbs-route">
