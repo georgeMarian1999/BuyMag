@@ -7,6 +7,7 @@ p {
   justify-content: flex-end;
   background-color: #24292e;
   height: 9%;
+  z-index: 1;
   position: sticky;
   top:0;
   animation: slideInDown 1s ease;
@@ -18,7 +19,6 @@ p {
   align-items: center;
   justify-content: space-evenly;
   width: 40%;
-
 }
 .custom-navbar-user{
   color: #888888;

@@ -1,16 +1,14 @@
-<div class="home-breadcrumbs card-shadow">
-  <div class="home-breadcrumbs-title">
+ <div class="home-breadcrumbs-title">
     <h4><b>Food & Stuff</b></h4>
-  </div>
+ </div>
   <div class="home-breadcrumbs-options">
-    <div>
+    <div class="food-select" (click)="showFood()">
       Food (1778)
     </div>
-    <div>
+    <div class="stuff-select" (click)="shotStuff();">
       Stuff (2300)
     </div>
   </div>
   <div class="home-breadcrumbs-route">
-    Food & Stuff / Food
+    Food & Stuff / {{route}}
   </div>
-</div>

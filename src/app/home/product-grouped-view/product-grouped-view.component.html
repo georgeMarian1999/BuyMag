@@ -1,6 +1,6 @@
 <div class="product-content card-shadow" *ngIf="product">
   <div class="product-image">
-    <img width="200" src="./assets/laptop.jfif" alt="Test">
+    <img width="150" height="150" src="./assets/laptop.jfif"  alt="Test">
   </div>
   <div class="product-info">
     <div class="product-review">
@@ -17,38 +17,9 @@
     </div>
     <div class="product-details">
       <h4><b>{{product.name}}</b></h4>
-      <p *ngIf="product.type"><b>Type:</b> {{product.type}}</p>
-      <p *ngIf="product.allergies"><b>Allergies: </b>
-        <span *ngFor="let allergy of product.allergies">{{allergy}},</span>
-      </p>
-      <p *ngIf="product.taste">
-        <b>Taste:</b>
-        {{product.taste}}
-      </p>
-      <p *ngIf="product.season">
-        <b>Recomended Season:</b>
-        {{product.season}}
-      </p>
-      <p>
-        <b>Description:</b>
-        {{product.description}}
-      </p>
-      <p *ngIf="product.calories">
-        <b>Calories:</b>
-        {{product.calories | calories}}
-      </p>
-      <p>
-        <b>Weight:</b>
-        {{product.weight}}
-      </p>
-      <p>
-        <b>In Store:</b>
-        {{product.stock}}
-      </p>
     </div>
-
   </div>
-  <hr>
+
   <div class="product-buy">
     <div class="product-stock">
       <p class="stock-available" *ngIf="product.stock!==0 && product.stock>=10">in stoc</p>

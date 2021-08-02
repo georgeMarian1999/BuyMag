@@ -2,7 +2,11 @@ export class User {
   id: string;
   username: string;
   password: string;
-  constructor(username:string,password:string,id?:string) {
+  name: string;
+  admin: boolean;
+  language?: string;
+  age?:number;
+  constructor(username:string,password:string,name:string,id?:string) {
     if(id){
       this.id = id;
     }
@@ -12,6 +16,9 @@ export class User {
     }
     this.username = username;
     this.password = password;
+    this.name = name;
+
+    this.admin = false;
   }
 
 }

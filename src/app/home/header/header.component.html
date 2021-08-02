@@ -1,25 +1,37 @@
-<div class="home-products-header card-shadow">
-  <div class="home-products-header-title">
-    <h1>Food</h1>
-    <h2>1779 products</h2>
+<div class="home-products-header-title">
+  <h1>{{typeOfProducts}}</h1>
+  <h2 *ngIf="products">{{products.length}} products</h2>
+</div>
+<hr>
+<div class="home-products-header-filter">
+  <div class="home-products-header-select-wrapper">
+    <label for="search-item">Name</label>
+    <input id="search-item">
   </div>
-  <hr>
-  <div class="home-products-header-filter">
-    <div class="home-products-header-select-wrapper">
-      <label for="search-item">Name</label>
-      <input id="search-item">
+  <div class="home-products-header-select-wrapper">
+    <label for="type-select">Type</label>
+    <select id="type-select">
+      <option value="" disabled selected>Selecteaza...</option>
+      <option *ngFor="let foodtype of foodTypes" [value]="foodtype">{{foodtype.toString()}}</option>
+    </select>
+  </div>
+  <div class="home-products-header-select-wrapper">
+    <label for="allergies-select">Allergies</label>
+    <select id="allergies-select">
+      <option value="" disabled selected>Selecteaza...</option>
+      <option *ngFor="let allergy of allergies" [value]="allergy">{{allergy.toString()}}</option>
+    </select>
+  </div>
+</div>
+<hr>
+<div class="home-products-header-view">
+  <span>Tip afisare:</span>
+  <div class="view-wrapper">
+    <div (click)="triggerChartView()" class="view-button selected chart-button">
+      <mat-icon> format_align_justify</mat-icon>
     </div>
-    <div class="home-products-header-select-wrapper">
-      <label for="type-select">Type</label>
-      <select id="type-select">
-        <option value="" disabled selected>Selecteaza...</option>
-      </select>
-    </div>
-    <div class="home-products-header-select-wrapper">
-      <label for="allergies-select">Allergies</label>
-      <select id="allergies-select">
-        <option value="" disabled selected>Selecteaza...</option>
-      </select>
+    <div (click)="triggerGroupedView()" class="view-button grouped-button">
+      <mat-icon>view_comfy</mat-icon>
     </div>
   </div>
 </div>

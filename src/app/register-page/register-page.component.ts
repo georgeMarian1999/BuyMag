@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 export class RegisterPageComponent implements OnInit {
   username: string = '';
   password: string = '';
+  name: string = '';
   error : string = '';
   loading: boolean = false;
   constructor(private authService:AuthService,
@@ -20,7 +21,7 @@ export class RegisterPageComponent implements OnInit {
 
   register():void {
     try{
-      this.authService.register(this.username,this.password)
+      this.authService.register(this.username,this.password,this.name)
         .subscribe();
       this.router.navigate(['/login']);
     }catch (error){

@@ -10,6 +10,9 @@ import { ProductsComponent } from './products-chart-view/products.component';
 import { ProductComponent } from './product-chart-view/product.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { ProductsGroupedViewComponent } from './products-grouped-view/products-grouped-view.component';
+import { CaloriesPipe } from './pipes/calories.pipe';
+import { PricePipe } from './pipes/price.pipe';
+import { ProductGroupedViewComponent } from './product-grouped-view/product-grouped-view.component';
 
 const routes = [
   {
@@ -27,6 +30,9 @@ const routes = [
     ProductsComponent,
     ProductComponent,
     ProductsGroupedViewComponent,
+    CaloriesPipe,
+    PricePipe,
+    ProductGroupedViewComponent,
   ],
     imports: [
         CommonModule,
