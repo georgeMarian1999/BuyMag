@@ -3,31 +3,31 @@ import {Observable, of} from "rxjs";
 import {data} from "./mock-food";
 import {delay} from "rxjs/operators";
 import {Product} from "./model/product";
-import {Allergies, fromString} from "./model/allergies";
+import {fromString} from "./model/allergies";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-
+  products: Product[] = data;
   constructor() { }
   getNrFoods():Observable<number> {
-    return of(data.filter((p:Product)=> p.calories !== undefined).length).pipe(
+    return of(this.products.filter((p:Product)=> p.calories !== undefined).length).pipe(
       delay(500)
     );
   }
   getFoods(): Observable<Product[]>{
-    return of(data.filter((p:Product)=> p.calories !== undefined)).pipe(
+    return of(this.products.filter((p:Product)=> p.calories !== undefined)).pipe(
       delay(500)
     );
   }
   getNrStuff():Observable<number>{
-    return of(data.filter((p:Product)=> p.calories === undefined).length).pipe(
+    return of(this.products.filter((p:Product)=> p.calories === undefined).length).pipe(
       delay(500)
     );
   }
   getProducts():Observable<Product[]> {
-    return of(data).pipe(
+    return of(this.products).pipe(
       delay(1000)
     );
   }
@@ -42,7 +42,7 @@ export class DataService {
     );
   }
   getFoodByAllergy(allergy:string):  Observable<Product[]>{
-    return of(data.filter((p:Product)=> {
+    return of(this.products.filter((p:Product)=> {
       return p.allergies?.includes(fromString(allergy));
     })).pipe(
       delay(500)
@@ -52,9 +52,17 @@ export class DataService {
     if(!term.trim()) {
       return of([]);
     }
-    return of(data.filter((pr:Product)=>{
+    return of(this.products.filter((pr:Product)=>{
       return pr.name.includes(term);
     }))
-
+  }
+  order(cart:Product[]):Observable<string> {
+    for(let item of cart){
+      const ind = this.products.findIndex((el:Product)=> el.id=== item.id);
+      this.products[ind].stock--;
+    }
+    return of('Order completed').pipe(
+      delay(400)
+    )
   }
 }

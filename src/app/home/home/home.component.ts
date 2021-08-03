@@ -94,19 +94,26 @@ export class HomeComponent implements OnInit {
   }
 
 
-  triggerChartView() {
+  triggerChartView():void {
     const chartButton = document.querySelector('.chart-button')!;
     const groupedButton = document.querySelector('.grouped-button')!;
     chartButton.classList.toggle('selected', true);
     groupedButton.classList.toggle('selected', false);
     this.chartView = true;
   }
-  triggerGroupedView() {
+  triggerGroupedView():void {
     const chartButton = document.querySelector('.chart-button')!;
     const groupedButton = document.querySelector('.grouped-button')!;
     chartButton.classList.toggle('selected', false);
     groupedButton.classList.toggle('selected', true);
     this.chartView = false;
+  }
+  confirmOrder():void {
+    this.dataService.order(this.cart)
+      .subscribe((res:string)=>{
+        alert(res);
+        this.cart = [];
+      })
   }
 
 }

@@ -9,6 +9,7 @@ import {Product} from "../model/product";
 export class CartComponent implements OnInit {
   @Input() cart?: Product[];
   @Output() deleteItemEvent = new EventEmitter<number>();
+  @Output() confirmOrderEvent = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit(): void {
@@ -16,5 +17,9 @@ export class CartComponent implements OnInit {
 
   deleteItem(id: number):void {
     this.deleteItemEvent.emit(id);
+  }
+
+  confirmOrder():void {
+    this.confirmOrderEvent.emit();
   }
 }

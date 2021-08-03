@@ -35,7 +35,7 @@ export const data: Product[] = [
     season: Season.Spring,
     url: 'https://placeholder.com/50',
     weight: 0.3,
-    stock: 3,
+    stock: 11,
     price: 1000,
     currency: Currency.RON,
     reviews: {
