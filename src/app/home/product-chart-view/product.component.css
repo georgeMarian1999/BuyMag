@@ -94,5 +94,8 @@ p {
   margin:0;
 }
 .stars i {
+  /*color: #e8ca57;*/
+}
+.colored-stars {
   color: #e8ca57;
 }

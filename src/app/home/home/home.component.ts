@@ -3,8 +3,6 @@ import {DataService} from "../data.service";
 import {FoodType} from "../model/food-type";
 import {Allergies} from "../model/allergies";
 import {Product} from "../model/product";
-import {Observable, Subject} from "rxjs";
-import {debounceTime, distinctUntilChanged, switchMap} from "rxjs/operators";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,6 +13,7 @@ export class HomeComponent implements OnInit {
   productsType:string = 'Food & Stuff';
   loading : boolean = true;
   chartView : boolean = true;
+  cart: Product[] = [];
   foodTypes: (FoodType | string)[] = [];
   allergies: (Allergies | string)[] = [];
 
@@ -29,8 +28,12 @@ export class HomeComponent implements OnInit {
     this.dataService.getProducts()
       .subscribe((data:Product[])=>{
         this.products = data;
+        this.products.sort((p1:Product,p2:Product)=> p1.order - p2.order);
         this.loading = false;
       })
+  }
+  addToCart(product:Product): void {
+    this.cart.push(product);
   }
   showFood(): void{
     this.loading = true;

@@ -10,10 +10,10 @@
     <div *ngIf="loading" class="loading-products">
       <mat-spinner></mat-spinner>
     </div>
-    <app-products *ngIf="chartView" [products]="products"></app-products>
-    <app-products-grouped-view *ngIf="!chartView" [products]="products"></app-products-grouped-view>
+    <app-products (addToCartEvent)="addToCart($event)" *ngIf="chartView" [products]="products"></app-products>
+    <app-products-grouped-view (addToCartEvent)="addToCart($event)" *ngIf="!chartView" [products]="products"></app-products-grouped-view>
   </div>
   <div class="cart-space">
-
+    <app-cart [cart]="cart"></app-cart>
   </div>
 </div>

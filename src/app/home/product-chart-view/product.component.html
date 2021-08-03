@@ -14,6 +14,9 @@
       <div *ngIf="product.reviews">
         {{product.reviews.reviewers.length}} review-uri
       </div>
+      <div *ngIf="!product.reviews">
+        0 review-uri
+      </div>
     </div>
     <div class="product-details">
       <h4><b>{{product.name}}</b></h4>
@@ -58,7 +61,7 @@
     <div class="product-price">
       <h2>{{product.price | price : product.currency }}</h2>
     </div>
-    <div class="add-button">
+    <div (click)="addToCart(product)" class="add-button">
       <div class="cart-icon">
         <i class="fas fa-shopping-cart"></i>
       </div>

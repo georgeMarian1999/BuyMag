@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output,EventEmitter} from '@angular/core';
 import {Product} from "../model/product";
 
 @Component({
@@ -8,9 +8,13 @@ import {Product} from "../model/product";
 })
 export class ProductGroupedViewComponent implements OnInit {
   @Input() product?: Product;
+  @Output() addToCartEvent = new EventEmitter<Product>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+  addToCart(product:Product): void{
+    this.addToCartEvent.emit(product);
   }
 
 }

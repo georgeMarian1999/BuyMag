@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output,EventEmitter} from '@angular/core';
 import {Product} from "../model/product";
 import {Observable} from "rxjs";
 
@@ -9,9 +9,14 @@ import {Observable} from "rxjs";
 })
 export class ProductsComponent implements OnInit {
   @Input() products? :Product[];
+  @Output() addToCartEvent = new EventEmitter<Product>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addToCart(product:Product):void {
+    this.addToCartEvent.emit(product);
   }
 
 }
