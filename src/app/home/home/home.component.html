@@ -14,6 +14,6 @@
     <app-products-grouped-view (addToCartEvent)="addToCart($event)" *ngIf="!chartView" [products]="products"></app-products-grouped-view>
   </div>
   <div class="cart-space">
-    <app-cart [cart]="cart"></app-cart>
+    <app-cart (deleteItemEvent)="deleteFromCart($event)" [cart]="cart"></app-cart>
   </div>
 </div>

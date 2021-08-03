@@ -35,6 +35,15 @@ export class HomeComponent implements OnInit {
   addToCart(product:Product): void {
     this.cart.push(product);
   }
+  deleteFromCart(id:number): void {
+    console.log(this.cart);
+
+    this.cart = this.cart.filter((it:Product)=>{
+      return it.id!==id;
+    } );
+    console.log(id);
+    console.log(this.cart);
+  }
   showFood(): void{
     this.loading = true;
     this.products = [];

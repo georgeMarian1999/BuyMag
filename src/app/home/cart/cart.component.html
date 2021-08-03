@@ -2,7 +2,10 @@
   <div class="cart-content">
     <div class="cart-item" *ngFor="let item of cart">
       <i class="fas fa-cart-plus"></i>
-      <div class="delete-cart-item">
+      <div class="cart-item-name">
+        {{item.price}}
+      </div>
+      <div (click)="deleteItem(item.id)" class="delete-cart-item">
         x
       </div>
     </div>

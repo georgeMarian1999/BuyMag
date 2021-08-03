@@ -33,6 +33,7 @@
 .cart-item {
   border-radius: 4px;
   display: flex;
+  flex-direction: column;
   position: relative;
   font-size: 20px;
   margin-top: 5px;
@@ -57,4 +58,7 @@
   padding: 0 4px;
   color: white;
   cursor: pointer;
+}
+.cart-item-name {
+  font-size: 10px;
 }
